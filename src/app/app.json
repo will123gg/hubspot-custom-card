@@ -1,0 +1,30 @@
+{
+  "name": "External URL Viewer",
+  "description": "Display deal information and redirect to external URLs",
+  "uid": "external_url_viewer",
+  "scopes": ["crm.objects.deals.read"],
+  "public": false,
+  "extensions": {
+    "crm": {
+      "cards": [
+        {
+          "file": "extensions/ExternalUrlCard.jsx",
+          "name": "external-url-card",
+          "title": "External URL",
+          "location": "crm.record.tab",
+          "objectTypes": [{ "name": "deals" }],
+          "propertyConfiguration": [
+            {
+              "name": "urlProperty",
+              "label": "URL Property",
+              "description": "Select the deal property that contains the external URL",
+              "type": "dealProperty",
+              "propertyTypes": ["string"],
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

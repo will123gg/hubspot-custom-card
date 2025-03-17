@@ -1,19 +1,12 @@
 {
-  "name": "hubspot-custom-card",
-  "srcDir": "client/src",
-  "description": "HubSpot CRM custom card solution for external URL redirection",
+  "name": "external-url-viewer",
+  "srcDir": "src/app",
+  "description": "A custom card that displays deal information and redirects to external URLs",
   "version": "1.0.0",
   "platformVersion": "2023.2",
-  "customCard": {
-    "sourceUrl": "${REPL_SLUG}.replit.app",
+  "project": {
     "name": "External URL Viewer Card",
-    "description": "A custom card that displays deal information and opens an external URL",
-    "dealCard": true,
-    "cardTypes": ["DEAL"],
-    "components": [{
-      "name": "HubspotCard",
-      "type": "react",
-      "file": "components/HubspotCard/index.tsx"
-    }]
+    "description": "HubSpot CRM custom card for external URL redirection",
+    "features": ["crm-card"]
   }
 }

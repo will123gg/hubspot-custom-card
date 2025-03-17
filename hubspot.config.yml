@@ -7,3 +7,7 @@ portals:
     sandboxAccountType: DEVELOPER_ACCOUNT
     accountType: STANDARD
     appId: 9520370
+project:
+  name: external-url-viewer
+  srcDir: src/app
+  deployRoot: dist
