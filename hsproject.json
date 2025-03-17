@@ -7,8 +7,13 @@
   "customCard": {
     "sourceUrl": "${REPL_SLUG}.replit.app",
     "name": "External URL Viewer Card",
-    "description": "A custom card that displays deal information and opens an external URL in an iframe",
+    "description": "A custom card that displays deal information and opens an external URL",
     "dealCard": true,
-    "cardTypes": ["DEAL"]
+    "cardTypes": ["DEAL"],
+    "components": [{
+      "name": "HubspotCard",
+      "type": "react",
+      "file": "components/HubspotCard/index.tsx"
+    }]
   }
 }

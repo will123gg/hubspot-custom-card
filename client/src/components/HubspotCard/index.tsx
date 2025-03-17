@@ -15,7 +15,9 @@ interface DealData {
 
 /**
  * @hubspot/ui-extension
- * A custom card that displays deal information and allows opening an external URL
+ * @name External URL Viewer Card
+ * @description A custom card that displays deal information and allows opening an external URL
+ * @cardType DEAL
  */
 export function HubspotCard() {
   const [dealData, setDealData] = useState<DealData | null>(null);
@@ -49,6 +51,18 @@ export function HubspotCard() {
 
     initCard();
   }, [toast]);
+
+  const handleOpenUrl = () => {
+    if (!dealData?.externalUrl) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "No external URL available for this deal.",
+      });
+      return;
+    }
+    window.open(dealData.externalUrl, '_blank');
+  };
 
   if (isLoading) {
     return (
@@ -84,7 +98,7 @@ export function HubspotCard() {
               </p>
             </div>
             <Button 
-              onClick={() => window.open(dealData?.externalUrl, '_blank')}
+              onClick={handleOpenUrl}
               className="w-full"
               variant="outline"
               disabled={!dealData?.externalUrl}
