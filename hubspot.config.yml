@@ -6,3 +6,4 @@ portals:
     personalAccessKey: ${HUBSPOT_PAT}
     sandboxAccountType: DEVELOPER_ACCOUNT
     accountType: STANDARD
+    appId: 9520370
