@@ -3,6 +3,7 @@
   "srcDir": "client/src",
   "description": "HubSpot CRM custom card solution for external URL redirection",
   "version": "1.0.0",
+  "platformVersion": "2023.2",
   "customCard": {
     "sourceUrl": "${REPL_SLUG}.replit.app",
     "name": "External URL Viewer Card",
