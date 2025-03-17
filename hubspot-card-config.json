@@ -14,5 +14,10 @@
       "required": true
     }
   ],
-  "appId": "9520370"
+  "appId": "9520370",
+  "ci": {
+    "type": "github",
+    "baseUrl": "https://api.github.com",
+    "repoName": "hubspot-custom-card"
+  }
 }

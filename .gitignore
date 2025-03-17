@@ -5,3 +5,6 @@ server/public
 vite.config.ts.*
 *.tar.gz
 hubspot.config.yml
+.env
+.env.local
+.env.*.local
