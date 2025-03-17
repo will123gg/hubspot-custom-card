@@ -21,7 +21,8 @@ const mockHubSpotCard = {
     return Promise.resolve({
       dealname: "Sample Deal",
       amount: "10000",
-      stage: "proposal"
+      stage: "proposal",
+      external_url: "https://example.com/deal/123" // Added external_url property
     });
   }
 };
@@ -59,7 +60,8 @@ export async function getHubspotDealData() {
       dealId,
       dealName: dealProperties.dealname || "Sample Deal",
       amount: dealProperties.amount,
-      stage: dealProperties.stage
+      stage: dealProperties.stage,
+      externalUrl: dealProperties.external_url // Added externalUrl to return object
     };
   } catch (error) {
     console.error("Failed to fetch deal data:", error);
@@ -68,7 +70,8 @@ export async function getHubspotDealData() {
       dealId: "demo-deal",
       dealName: "Demo Deal",
       amount: "10000",
-      stage: "proposal"
+      stage: "proposal",
+      externalUrl: "https://example.com/demo-deal" // Added default external URL
     };
   }
 }

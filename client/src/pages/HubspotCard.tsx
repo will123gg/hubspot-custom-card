@@ -10,6 +10,7 @@ interface DealData {
   dealName: string;
   amount?: string;
   stage?: string;
+  externalUrl?: string;
 }
 
 export default function HubspotCard() {
@@ -17,9 +18,6 @@ export default function HubspotCard() {
   const [isLoading, setIsLoading] = useState(true);
   const [showIframe, setShowIframe] = useState(false);
   const { toast } = useToast();
-
-  // Replace with your actual target URL
-  const targetUrl = "https://example.com";
 
   useEffect(() => {
     const initCard = async () => {
@@ -39,7 +37,8 @@ export default function HubspotCard() {
           dealId: "demo-deal",
           dealName: "Demo Deal",
           amount: "$10,000",
-          stage: "Proposal"
+          stage: "Proposal",
+          externalUrl: "https://example.com/demo-deal"
         });
       } finally {
         setIsLoading(false);
@@ -50,6 +49,14 @@ export default function HubspotCard() {
   }, [toast]);
 
   const toggleIframe = () => {
+    if (!dealData?.externalUrl) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "No external URL available for this deal.",
+      });
+      return;
+    }
     setShowIframe(!showIframe);
   };
 
@@ -90,6 +97,7 @@ export default function HubspotCard() {
               onClick={toggleIframe}
               className="w-full"
               variant="outline"
+              disabled={!dealData?.externalUrl}
             >
               {showIframe ? "Close External Page" : "Open External Page"}
               {showIframe ? (
@@ -103,7 +111,7 @@ export default function HubspotCard() {
       </Card>
 
       {/* Iframe overlay */}
-      {showIframe && (
+      {showIframe && dealData?.externalUrl && (
         <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg shadow-lg">
             <Button
@@ -115,7 +123,7 @@ export default function HubspotCard() {
               <X className="h-4 w-4" />
             </Button>
             <iframe
-              src={targetUrl}
+              src={dealData.externalUrl}
               className="w-full h-full rounded-lg"
               title="External Content"
               sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
