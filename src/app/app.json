@@ -8,7 +8,7 @@
     "crm": {
       "cards": [
         {
-          "file": "extensions/ExternalUrlCard.jsx",
+          "file": "extensions/cards/external-url-card.js",
           "name": "external-url-card",
           "title": "External URL",
           "location": "crm.record.tab",
@@ -18,8 +18,10 @@
               "name": "urlProperty",
               "label": "URL Property",
               "description": "Select the deal property that contains the external URL",
-              "type": "dealProperty",
-              "propertyTypes": ["string"],
+              "type": "propertyName",
+              "options": {
+                "propertyTypes": ["string"]
+              },
               "required": true
             }
           ]
