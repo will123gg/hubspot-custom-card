@@ -16,8 +16,14 @@ interface DealData {
 /**
  * @hubspot/ui-extension
  * @name External URL Viewer Card
- * @description A custom card that displays deal information and allows opening an external URL
+ * @description A custom card that displays deal information and allows opening an external URL.
  * @cardType DEAL
+ * @properties
+ *   - dealId: string - The ID of the HubSpot deal.
+ *   - dealName: string - The name of the HubSpot deal.
+ *   - amount: string - The amount of the HubSpot deal (optional).
+ *   - stage: string - The stage of the HubSpot deal (optional).
+ *   - externalUrl: string - The external URL associated with the deal (optional).
  */
 export function HubspotCard() {
   const [dealData, setDealData] = useState<DealData | null>(null);
@@ -37,6 +43,7 @@ export function HubspotCard() {
           title: "Warning",
           description: "Using demo data for preview purposes.",
         });
+        // Set demo data even if initialization fails
         setDealData({
           dealId: "demo-deal",
           dealName: "Demo Deal",
