@@ -4,6 +4,9 @@ declare global {
       init: () => Promise<void>;
       getDealId: () => Promise<string>;
       getDealProperties: (dealId: string) => Promise<any>;
+      getCardConfiguration: () => Promise<{
+        urlPropertyName: string;
+      }>;
     };
   }
 }
@@ -22,7 +25,12 @@ const mockHubSpotCard = {
       dealname: "Sample Deal",
       amount: "10000",
       stage: "proposal",
-      external_url: "https://example.com/deal/123" // Added external_url property
+      custom_url: "https://example.com/deal/123" // Using custom property name
+    });
+  },
+  getCardConfiguration: async () => {
+    return Promise.resolve({
+      urlPropertyName: "custom_url" // This would be configured in HubSpot
     });
   }
 };
@@ -55,13 +63,17 @@ export async function getHubspotDealData() {
   try {
     const dealId = await window.HubSpotCard.getDealId();
     const dealProperties = await window.HubSpotCard.getDealProperties(dealId);
+    const config = await window.HubSpotCard.getCardConfiguration();
+
+    // Use the configured property name to get the URL
+    const externalUrl = dealProperties[config.urlPropertyName];
 
     return {
       dealId,
       dealName: dealProperties.dealname || "Sample Deal",
       amount: dealProperties.amount,
       stage: dealProperties.stage,
-      externalUrl: dealProperties.external_url // Added externalUrl to return object
+      externalUrl: externalUrl // URL from configured property
     };
   } catch (error) {
     console.error("Failed to fetch deal data:", error);
@@ -71,7 +83,7 @@ export async function getHubspotDealData() {
       dealName: "Demo Deal",
       amount: "10000",
       stage: "proposal",
-      externalUrl: "https://example.com/demo-deal" // Added default external URL
+      externalUrl: "https://example.com/demo-deal"
     };
   }
 }
