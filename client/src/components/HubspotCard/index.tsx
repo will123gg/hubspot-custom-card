@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, X } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { initializeHubspotCard, getHubspotDealData } from "@/lib/hubspot";
 
@@ -13,10 +13,13 @@ interface DealData {
   externalUrl?: string;
 }
 
-export default function HubspotCard() {
+/**
+ * @hubspot/ui-extension
+ * A custom card that displays deal information and allows opening an external URL
+ */
+export function HubspotCard() {
   const [dealData, setDealData] = useState<DealData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [showIframe, setShowIframe] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -95,3 +98,5 @@ export default function HubspotCard() {
     </div>
   );
 }
+
+export default HubspotCard;
