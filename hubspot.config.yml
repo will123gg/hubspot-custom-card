@@ -1,0 +1,8 @@
+defaultPortal: test
+portals:
+  - name: test
+    portalId: 145430867
+    env: prod
+    personalAccessKey: ${HUBSPOT_PAT}
+    sandboxAccountType: DEVELOPER_ACCOUNT
+    accountType: STANDARD
