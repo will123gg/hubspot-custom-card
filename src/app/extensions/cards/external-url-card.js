@@ -34,18 +34,6 @@ hubspot.extend(({ context }) => {
 
       <Divider />
 
-      {dealProperties.amount && (
-        <Text>
-          Amount: {dealProperties.amount}
-        </Text>
-      )}
-
-      {dealProperties.dealstage && (
-        <Text>
-          Stage: {dealProperties.dealstage}
-        </Text>
-      )}
-
       <Text format={{ marginTop: 12 }}>
         View additional information about this deal on our external platform.
       </Text>
