@@ -8,3 +8,6 @@ hubspot.config.yml
 .env
 .env.local
 .env.*.local
+*.log
+.husky
+.vscode
