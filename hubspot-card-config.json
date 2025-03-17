@@ -1,0 +1,17 @@
+{
+  "name": "External URL Viewer Card",
+  "description": "A custom card that displays deal information and opens an external URL in an iframe",
+  "sourceUrl": "https://your-repl-url.replit.app",
+  "cardTypes": ["DEAL"],
+  "configureUrl": "https://your-repl-url.replit.app/configure",
+  "cardConfigs": [
+    {
+      "name": "urlPropertyName",
+      "label": "URL Property",
+      "description": "Select the deal property that contains the external URL",
+      "type": "dealProperty",
+      "propertyTypes": ["string"],
+      "required": true
+    }
+  ]
+}
