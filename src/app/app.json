@@ -1,6 +1,6 @@
 {
   "name": "External URL Viewer",
-  "description": "Display deal information and redirect to external URLs",
+  "description": "Display deal information and external URLs in an iframe modal",
   "uid": "external_url_viewer",
   "scopes": ["crm.objects.deals.read"],
   "public": false,
@@ -10,7 +10,7 @@
         {
           "file": "extensions/cards/external-url-card.js",
           "name": "external-url-card",
-          "title": "External URL",
+          "title": "External URL Viewer",
           "location": "crm.record.tab",
           "objectTypes": [{ "name": "deals" }],
           "propertyConfiguration": [
