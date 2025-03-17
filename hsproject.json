@@ -1,0 +1,12 @@
+{
+  "name": "hubspot-custom-card",
+  "srcDir": "client/src",
+  "description": "HubSpot CRM custom card solution for external URL redirection",
+  "version": "1.0.0",
+  "customCard": {
+    "sourceUrl": "${REPL_SLUG}.replit.app",
+    "name": "External URL Viewer Card",
+    "description": "A custom card that displays deal information and opens an external URL in an iframe",
+    "dealCard": true
+  }
+}
